@@ -83,7 +83,7 @@ export const Users = () => {
           roleId: formData.roleId || null,
           hasAccess: formData.hasAccess,
         };
-        await userService.update(editingUser.id, updateData);
+        await userService.update(editingUser._id, updateData);
       } else {
         if (!formData.password) {
           setError('Password is required');
@@ -153,7 +153,7 @@ export const Users = () => {
               </thead>
               <tbody>
                 {users.map((user) => (
-                  <tr key={user.id}>
+                  <tr key={user._id}>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>{user.role?.name || 'No Role'}</td>
@@ -170,7 +170,7 @@ export const Users = () => {
                           </button>
                         )}
                         {canDelete && !user.isAdmin && (
-                          <button onClick={() => handleDelete(user.id)} className="btn-delete">
+                          <button onClick={() => handleDelete(user._id)} className="btn-delete">
                             Delete
                           </button>
                         )}
@@ -258,4 +258,3 @@ export const Users = () => {
     </ProtectedRoute>
   );
 };
-
