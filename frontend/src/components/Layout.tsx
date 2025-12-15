@@ -33,23 +33,14 @@ export const Layout = ({ children }: LayoutProps) => {
           )}
         </div>
         <div className="nav-user">
-  {user && (
-    <>
-      <div className="user-avatar">
-        {user.name.charAt(0).toUpperCase()}
-      </div>
-      <div className="user-details">
-        <span className="user-name">{user.name}</span>
-        <span className="user-role">{user.isAdmin ? 'Admin' : user.role?.name || 'User'}</span>
-      </div>
-      <div className="divider"></div>
-      <button onClick={handleLogout} className="logout-btn">
-        <span>→</span>
-        Logout
-      </button>
-    </>
-  )}
-</div>
+          {user && (
+            <>
+              <span className="user-name">{user.name}</span>
+              <span className="user-role">{user.isAdmin ? 'Admin' : user.role?.name || 'No Role'}</span>
+              <button onClick={handleLogout} className="logout-btn">Logout</button>
+            </>
+          )}
+        </div>
       </nav>
       <main className="main-content">
         {children}

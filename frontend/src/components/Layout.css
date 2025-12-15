@@ -1,11 +1,12 @@
-/* .layout {
+.layout {
+  background-color: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .navbar {
-  background-color: #2c3e50;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 1rem 2rem;
   display: flex;
@@ -33,7 +34,8 @@
 }
 
 .nav-link:hover {
-  background-color: #34495e;
+   color: white;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .nav-user {
@@ -47,14 +49,14 @@
 }
 
 .user-role {
-  background-color: #3498db;
+  background-color: #74bff1;
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   font-size: 0.875rem;
 }
 
 .logout-btn {
-  background-color: #e74c3c;
+  background-color: #e64230;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -88,10 +90,11 @@
 .no-permission h2 {
   color: #e74c3c;
   margin-bottom: 1rem;
-} */
+}
 
 
-.layout {
+
+/* .layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -100,7 +103,7 @@
   overflow-x: hidden;
 }
 
-/* Subtle background pattern */
+
 .layout::before {
   content: '';
   position: absolute;
@@ -278,7 +281,6 @@
   z-index: 1;
 }
 
-/* Loading state */
 .loading {
   display: flex;
   flex-direction: column;
@@ -310,7 +312,7 @@
   margin: 0;
 }
 
-/* No access/no permission states */
+
 .no-access, .no-permission {
   display: flex;
   flex-direction: column;
@@ -366,7 +368,6 @@
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;
@@ -445,7 +446,7 @@
   }
 }
 
-/* Accessibility */
+
 button:focus-visible,
 .nav-link:focus-visible,
 .back-btn:focus-visible {
@@ -453,7 +454,6 @@ button:focus-visible,
   outline-offset: 2px;
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .nav-brand h2::before,
   .nav-link::before,
@@ -466,4 +466,4 @@ button:focus-visible,
     transition: none;
     transform: none;
   }
-}
+} */

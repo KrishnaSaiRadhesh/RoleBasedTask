@@ -601,3 +601,10 @@
     justify-content: center;
   }
 }
+
+.checkbox{
+  display: flex;
+}
+.checkbox-label input[type="checkbox"] {
+  margin-right: 10px;
+}

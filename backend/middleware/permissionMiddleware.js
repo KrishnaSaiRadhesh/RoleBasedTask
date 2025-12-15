@@ -2,11 +2,10 @@ const checkPermission = (resource, action) => {
   return async (req, res, next) => {
     try {
       const user = req.user;
-
+      
       if (user.isAdmin) {
         return next();
       }
-
       if (!user.role) {
         return res.status(403).json({ message: 'No role assigned. Access denied' });
       }

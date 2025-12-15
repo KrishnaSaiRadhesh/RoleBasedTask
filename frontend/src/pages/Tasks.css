@@ -177,6 +177,8 @@
   font-size: 1rem;
   box-sizing: border-box;
   font-family: inherit;
+  background-color: #fff;
+  color:#000
 }
 
 .form-group input:focus,

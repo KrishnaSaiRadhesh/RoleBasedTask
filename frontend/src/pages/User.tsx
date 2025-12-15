@@ -230,16 +230,18 @@ export const Users = () => {
                       ))}
                     </select>
                   </div>
-                  <div className="form-group">
-                    <label>
-                      <input
-                        type="checkbox"
-                        checked={formData.hasAccess}
-                        onChange={(e) => setFormData({ ...formData, hasAccess: e.target.checked })}
-                      />
-                      Grant Access
-                    </label>
-                  </div>
+                  <div className="form-group checkbox-group">
+                      <label className="checkbox-label">
+                        <input
+                          type="checkbox"
+                          checked={formData.hasAccess}
+                          onChange={(e) =>
+                            setFormData({ ...formData, hasAccess: e.target.checked })
+                          }
+                        />
+                        <span>Grant Access</span>
+                      </label>
+                </div>
                   {error && <div className="error-message">{error}</div>}
                   <div className="modal-actions">
                     <button type="button" onClick={() => setShowModal(false)} className="btn-secondary">

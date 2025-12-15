@@ -227,7 +227,7 @@ export const Tasks = () => {
                     >
                       <option value="">Unassigned</option>
                       {users.map((user) => (
-                        <option key={user.id} value={user.id}>
+                        <option key={user._id} value={user._id}>
                           {user.name}
                         </option>
                       ))}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link, Navigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
@@ -7,23 +7,14 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [formLoading, setFormLoading] = useState(false);
-
-  const { login, user, loading } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const { login } = useAuth();
   const navigate = useNavigate();
-
-  if (loading) {
-    return <div className="loading">Loading...</div>;
-  }
-
-  if (user) {
-    return <Navigate to="/users" replace />;
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    setFormLoading(true);
+    setLoading(true);
 
     try {
       await login(email, password);
@@ -31,7 +22,7 @@ export const Login = () => {
     } catch (err: any) {
       setError(err.response?.data?.message || 'Login failed');
     } finally {
-      setFormLoading(false);
+      setLoading(false);
     }
   };
 
@@ -72,5 +63,3 @@ export const Login = () => {
     </div>
   );
 };
-
-
