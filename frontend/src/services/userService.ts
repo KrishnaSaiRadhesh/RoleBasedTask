@@ -17,7 +17,6 @@ export interface UpdateUserData {
   hasAccess?: boolean;
 }
 
-// 🔄 Normalize MongoDB user (_id → id)
 const normalizeUser = (user: any): User => ({
   ...user,
   id: user._id,

@@ -7,7 +7,6 @@ const generateToken = (id) => {
   });
 };
 
-// Register
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -46,7 +45,6 @@ exports.register = async (req, res) => {
   }
 };
 
-// Login
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -85,7 +83,6 @@ exports.login = async (req, res) => {
   }
 };
 
-// Get current user
 exports.getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user._id).populate('role').select('-password');

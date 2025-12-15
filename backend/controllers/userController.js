@@ -1,7 +1,6 @@
 const User = require('../models/User');
 const Role = require('../models/Role');
 
-// Get all users
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find().populate('role').select('-password');
@@ -11,7 +10,6 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-// Get single user
 exports.getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id).populate('role').select('-password');
@@ -24,7 +22,6 @@ exports.getUser = async (req, res) => {
   }
 };
 
-// Create user
 exports.createUser = async (req, res) => {
   try {
     const { name, email, password, roleId, hasAccess } = req.body;
@@ -61,13 +58,11 @@ exports.createUser = async (req, res) => {
   }
 };
 
-// Update user
 exports.updateUser = async (req, res) => {
   try {
     const { name, email, roleId, hasAccess } = req.body;
     const userId = req.params.id;
 
-    // Prevent updating admin status through this route
     const updateData = { name, email, hasAccess };
 
     if (roleId) {
@@ -96,7 +91,6 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-// Delete user
 exports.deleteUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -105,7 +99,6 @@ exports.deleteUser = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Prevent deleting admin
     if (user.isAdmin) {
       return res.status(403).json({ message: 'Cannot delete admin user' });
     }

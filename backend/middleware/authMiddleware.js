@@ -16,7 +16,6 @@ const authMiddleware = async (req, res, next) => {
       return res.status(401).json({ message: 'User not found' });
     }
 
-    // Check if user has access (unless admin)
     if (!user.isAdmin && !user.hasAccess) {
       return res.status(403).json({ message: 'Access denied. Please wait for admin approval' });
     }

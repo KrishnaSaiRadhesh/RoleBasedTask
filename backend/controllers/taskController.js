@@ -1,6 +1,5 @@
 const Task = require('../models/Task');
 
-// Get all tasks
 exports.getAllTasks = async (req, res) => {
   try {
     const tasks = await Task.find()
@@ -13,7 +12,6 @@ exports.getAllTasks = async (req, res) => {
   }
 };
 
-// Get single task
 exports.getTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id)
@@ -29,7 +27,6 @@ exports.getTask = async (req, res) => {
   }
 };
 
-// Create task
 exports.createTask = async (req, res) => {
   try {
     const { title, description, status, assignedTo } = req.body;
@@ -56,7 +53,6 @@ exports.createTask = async (req, res) => {
   }
 };
 
-// Update task
 exports.updateTask = async (req, res) => {
   try {
     const { title, description, status, assignedTo } = req.body;
@@ -79,7 +75,6 @@ exports.updateTask = async (req, res) => {
   }
 };
 
-// Delete task
 exports.deleteTask = async (req, res) => {
   try {
     const task = await Task.findByIdAndDelete(req.params.id);

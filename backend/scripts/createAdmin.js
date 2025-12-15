@@ -7,22 +7,17 @@ dotenv.config();
 const createAdmin = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/admin_platform');
-
     console.log('Connected to MongoDB');
-
-    // Check if admin already exists
     const adminExists = await User.findOne({ email: 'admin@admin.com' });
     if (adminExists) {
       console.log('Admin user already exists');
       await mongoose.connection.close();
       return;
     }
-
-    // Create admin user
     const admin = await User.create({
       name: 'Admin',
       email: 'admin@admin.com',
-      password: 'admin123', // Change this in production
+      password: 'admin123', 
       isAdmin: true,
       hasAccess: true
     });

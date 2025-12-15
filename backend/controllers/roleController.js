@@ -1,6 +1,5 @@
 const Role = require('../models/Role');
 
-// Get all roles
 exports.getAllRoles = async (req, res) => {
   try {
     const roles = await Role.find().sort({ createdAt: -1 });
@@ -10,7 +9,6 @@ exports.getAllRoles = async (req, res) => {
   }
 };
 
-// Get single role
 exports.getRole = async (req, res) => {
   try {
     const role = await Role.findById(req.params.id);
@@ -24,7 +22,6 @@ exports.getRole = async (req, res) => {
   }
 };
 
-// Create role
 exports.createRole = async (req, res) => {
   try {
     const { name, permissions } = req.body;
@@ -55,7 +52,6 @@ exports.createRole = async (req, res) => {
   }
 };
 
-// Update role
 exports.updateRole = async (req, res) => {
   try {
     const { name, permissions } = req.body;
@@ -76,7 +72,6 @@ exports.updateRole = async (req, res) => {
   }
 };
 
-// Delete role
 exports.deleteRole = async (req, res) => {
   try {
     const role = await Role.findByIdAndDelete(req.params.id);
