@@ -6,7 +6,7 @@ interface ProtectedRouteProps {
   requirePermission?: {
     resource: 'tasks' | 'roles' | 'users';
     action: 'create' | 'read' | 'update' | 'delete';
-  };
+  }; 
 }
 
 export const ProtectedRoute = ({ children, requirePermission }: ProtectedRouteProps) => {

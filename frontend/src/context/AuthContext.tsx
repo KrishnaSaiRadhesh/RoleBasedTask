@@ -30,7 +30,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (token && storedUser) {
       try {
         setUser(JSON.parse(storedUser)); // string to JSON
-        // Verify token is still valid
         authService.getMe().then((response) => {
           setUser(response.user);
           localStorage.setItem('user', JSON.stringify(response.user));
